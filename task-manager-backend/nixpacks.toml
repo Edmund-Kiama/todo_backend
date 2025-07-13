@@ -1,5 +1,5 @@
 [phases.setup]
-nixpkgsArchive = "daedc8c3cb46beac7f50373fa1c79e1d31365618"  # compatible with PHP 8.1
+nixpkgsArchive = "33b8c44951b679739a95dcd98024323e853dd0d2"
 
 [phases.install]
 cmds = ["composer install --no-dev --optimize-autoloader"]
