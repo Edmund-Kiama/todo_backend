@@ -18,20 +18,24 @@ class TaskController extends Controller
     {
         $validated = $request->validate([
             'title' => 'required|string|max:255',
-            'user' => 'required|email|exists:users,email', 
+            'user' => 'required|email|exists:users,email',
             'deadline' => 'required|date',
             'status' => 'nullable|in:Pending,Completed'
         ]);
 
-        // Get the user ID from email
-        $user = \App\Models\User::where('email', $validated['user'])->first();
+        // Get the user model
+        $user = User::where('email', $validated['user'])->first();
 
-        $task = \App\Models\Task::create([
+        // Create the task
+        $task = Task::create([
             'title' => $validated['title'],
             'user_id' => $user->id,
             'deadline' => $validated['deadline'],
             'status' => $validated['status'] ?? 'Pending'
         ]);
+
+        // Send email
+        Mail::to($user->email)->send(new TaskAssigned($task));
 
         return response()->json(['task' => $task], 201);
     }
