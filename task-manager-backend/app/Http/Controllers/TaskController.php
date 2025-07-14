@@ -35,7 +35,7 @@ class TaskController extends Controller
         ]);
 
         // Send email
-        Mail::to($user->email)->send(new TaskAssigned($task));
+        // Mail::to($user->email)->send(new TaskAssigned($task));
 
         return response()->json(['task' => $task], 201);
     }
