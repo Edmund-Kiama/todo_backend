@@ -1,13 +1,13 @@
 {
     "private": true,
     "scripts": {
-        "dev": "npm run development",
-        "development": "mix",
-        "watch": "mix watch",
-        "watch-poll": "mix watch -- --watch-options-poll=1000",
-        "hot": "mix watch --hot",
-        "prod": "npm run production",
-        "production": "mix --production"
+      "dev": "echo 'No frontend - skipping build'",
+      "development": "echo 'No frontend - skipping build'",
+      "watch": "echo 'No frontend - skipping build'",
+      "watch-poll": "echo 'No frontend - skipping build'",
+      "hot": "echo 'No frontend - skipping build'",
+      "prod": "echo 'No frontend - skipping build'",
+      "production": "echo 'No frontend - skipping build'"
     },
     "devDependencies": {
         "axios": "^0.21",
@@ -15,4 +15,5 @@
         "lodash": "^4.17.19",
         "postcss": "^8.1.14"
     }
-}
+  }
+  
