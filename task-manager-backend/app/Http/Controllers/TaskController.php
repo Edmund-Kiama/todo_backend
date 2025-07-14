@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Task;
 use Illuminate\Http\Request;
+use App\Models\User;
 
 class TaskController extends Controller
 {
@@ -35,7 +36,7 @@ class TaskController extends Controller
         ]);
 
         // Send email
-        // Mail::to($user->email)->send(new TaskAssigned($task));
+        Mail::to($user->email)->send(new TaskAssigned($task));
 
         return response()->json(['task' => $task], 201);
     }
