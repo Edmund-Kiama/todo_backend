@@ -38,8 +38,12 @@ class TaskController extends Controller
         ]);
 
         // Send email
-        // $task->load('user'); 
-        // Mail::to($user->email)->send(new TaskAssigned($task));
+        $task->load('user'); 
+        try {
+            Mail::to($user->email)->send(new TaskAssigned($task));
+        } catch (\Exception $e) {
+            \Log::error('Mail error: '.$e->getMessage());
+        }
 
         return response()->json(['task' => $task], 201);
     }
